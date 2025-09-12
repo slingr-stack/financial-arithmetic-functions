@@ -15,7 +15,8 @@ export function getPrecision(str: string) {
 	if (allDigits.test(str)) {
 		return 0
 	} else {
-		return str.split(`.`)[1].length
+		const parts = str.split(`.`);
+		return parts[1] ? parts[1].length : 0;
 	}
 }
 
