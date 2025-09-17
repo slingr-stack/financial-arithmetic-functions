@@ -19,7 +19,7 @@
 		"test": "run-p test:*",
 		"build:types": "tsc --declaration --emitDeclarationOnly --outDir .",
 		"build:cjs": "tsc --module commonjs --outDir . --target es2017",
-		"build:esm": "tsc --module es2020 --outDir . --target es2017 && mv index.js index.mjs",
+		"build:esm": "tsc --module es2020 --outDir . --target es2017 && node -e \"require('fs').renameSync('index.js','index.mjs')\"",
 		"prepare": "npm run build",
 		"prepublishOnly": "npm run build",
 		"build": "npm run build:types && npm run build:cjs && npm run build:esm"
