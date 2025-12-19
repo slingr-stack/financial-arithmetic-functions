@@ -2,3 +2,4 @@ node_modules
 index.[cm]js
 index.d.ts
 test/test.mjs
+.vscode/settings.json

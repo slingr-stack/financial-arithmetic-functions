@@ -17,10 +17,12 @@
 		"test:readme": "jsmd readme.md",
 		"test:types": "tsc --noEmit",
 		"test": "run-p test:*",
-		"build:cjs": "esbuild index.ts --bundle --format=cjs --outfile=index.cjs",
-		"build:esm": "esbuild index.ts --bundle --format=esm --outfile=index.mjs",
-		"build:types": "tsc index.ts --emitDeclarationOnly --declaration",
-		"build": "run-p build:*"
+		"build:types": "tsc --declaration --emitDeclarationOnly --outDir .",
+		"build:cjs": "tsc --module commonjs --outDir . --target es2017",
+		"build:esm": "tsc --module es2020 --outDir . --target es2017 && node -e \"require('fs').renameSync('index.js','index.mjs')\"",
+		"prepare": "npm run build",
+		"prepublishOnly": "npm run build",
+		"build": "npm run build:types && npm run build:cjs && npm run build:esm"
 	},
 	"repository": {
 		"type": "git",
