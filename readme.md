@@ -11,6 +11,8 @@ Require with `const math = require('financial-arithmetic-functions')`
 const math = require('./')
 -->
 
+> This package is a fork of [TehShrike/financial-arithmetic-functions](https://github.com/TehShrike/financial-arithmetic-functions) that fixes the `getPrecision(str)` function to correctly handle strings without decimals.
+
 # validate(str)
 
 Can you pass it in to any of the other functions?
